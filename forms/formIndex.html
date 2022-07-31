@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formStyle.css">
+    <title>Agendamento</title>
+</head>
+
+<body class="pagina">
+    <form method="post"> 
+        <div class="FormularioAgendamento">
+            <p class="Paragrafo"> 
+                Preencha os dados abaixo para confirmar seu pré-agendamento!
+            </p>
+
+            <div class="FormularioAgendamento__Calendario">
+                <img src="calendario.png" alt="Ícone, calendário">
+            </div>
+
+        </div>
+
+        <div class="InputStyles">
+            <input type="text" id="name" aria-label="nome" name="nome" value=""placeholder="Seu nome completo" required>
+        </div>
+
+        <div class="InputStyles">
+            <input type="text" id = "phone" aria-label="telefone" name="telefone" placeholder="Celular com DDD" value="" required>
+        </div>
+
+        <div class="InputStyles">
+
+            <select id = "service" aria-label="procedimento" placeholder="Selecione um Procedimento" class="select-input">
+                <option value="">Selecione um Procedimento</option>
+                <option disabled="">--------------------</option>
+                <option value="Avaliação (Gratuita)">Avaliação (Gratuita)</option>
+                <option disabled="">--------------------</option>
+                <option value="Toxina Botulínica">Toxina Botulínica</option>
+                <option value="Revitalização facial">Revitalização facial</option>
+                <option value="Fios de Sustentação (PDO)">Fios de Sustentação (PDO)</option>
+                <option value="Bioestimulador de Colágeno">Bioestimulador de Colágeno</option>
+                <option value="Microagulhamento">Microagulhamento</option>
+                <option value="Peeling">Peeling</option><option 
+                value="Limpeza de Pele">Limpeza de Pele</option>
+                <option value="Eletrocautério">Eletrocautério</option>
+                <option value="DMAE">DMAE</option>
+                <option value="Emagrecimento Facial">Emagrecimento Facial</option>
+                <option value="Lipo Enzimática De Papada">Lipo Enzimática De Papada</option>
+                <option value="Kit Melasma">Kit Melasma</option>
+                <option value="SkinBooster">SkinBooster</option>
+            </select>
+        </div>
+
+        <div class="InputStyles">
+            <input class='datetime' type="date" id ="date" value="" placeholder="Data" class="date-picker" min="2022-07-20">
+
+            <input class="time-picker" type="time" id = "time" value="" placeholder="Horário" min="09:00" max="19:00">
+        </div>
+
+        <div class="InputStyles">
+            <button type="button" onclick="gotowhatsapp();" value ="submit" class="Button">
+                <strong> Agende a análise da sua pele!</strong>
+            </button>
+        </div>
+
+    </form>
+    
+    <script>
+        function gotowhatsapp() {
+            
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var service = document.getElementById("service").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            
+        
+            var url = "https://wa.me/5527997050833?text=" 
+            + "Olá, Quero realizar um agendamento!" + "%0a"
+            + "Nome: " + name + "%0a"
+            + "Telefone: " + phone + "%0a"
+            + "Serviço: " + service + "%0a"
+            + "Data: " + date + "%20"
+            + "Hora: " + time; 
+        
+            window.open(url, '_blank').focus();
+        }
+        </script>
+
+      
+</body>
+</html>
